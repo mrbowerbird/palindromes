@@ -4,9 +4,15 @@ $(document).ready(function() {
     var userInput = $("input#words").val();
     var ifPalindrome = userInput.split("");
 
+    ifPalindrome = ifPalindrome.filter(function(str)
+  {
+    return /\S/.test(str);
+  });
+
+
     // var ifPalindrome2 = ifPalindrome.map(results.reverse());
-    var ifPalindrome2 = ifPalindrome.map(function(number) {
-  return number;
+    var ifPalindrome2 = ifPalindrome.map(function(word) {
+  return word;
 });
 
 
@@ -16,7 +22,7 @@ $(document).ready(function() {
 
 
 
-    if (ifPalindrome.toString() === ifPalindrome2.toString()) {
+    if (ifPalindrome.toString().toUpperCase() === ifPalindrome2.toString().toUpperCase()) {
       alert("that's a palindrome!!");
     }
     else {
